@@ -37,7 +37,14 @@ Attempted Sketch out:
 
 A row of 5 forms that all are used by the submit button, each individual row is deleted from the table and total monthly.
 
-
+NPM TEST
+ Adds a single new employee's data to the table (39 ms)
+    ✕ Adds multiple new employees' data to the table (5 ms)
+    ✕ Clears out the form inputs after a new employee is submitted (6 ms)
+    ✕ Updates the total monthly salary value when a single employee is added (6 ms)
+    ✕ Updates the total monthly salary value when multiple employees are added (6 ms)
+    ✕ Applies the 'over-budget' CSS class to the footer when the total monthly salary exceeds $20,000 (5 ms)
+    ✕ Removes the correct employee table row when a delete button is clicked (6 ms)
 
 
 
