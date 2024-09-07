@@ -1,4 +1,6 @@
 /* flex box !! be careful */
+
+
 body{
     display: flex;
     flex-direction: column;
@@ -28,4 +30,9 @@ th, td {
 thead {
     background-color: purple;
     color: yellow;
+}
+
+div {
+    margin-left: auto;
+    margin-right: 0;
 }
