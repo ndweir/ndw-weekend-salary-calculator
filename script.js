@@ -1,5 +1,6 @@
 
-
+let totalMonthlySalary = 0;
+let annualSalaryHolder = 0;
 
 function formSubmit(event){
     // take form inputs into variables
@@ -10,10 +11,10 @@ function formSubmit(event){
     let iDsubmit = document.getElementById('iDnum').value;
     let titleSubmit = document.getElementById('title').value;
     let annualSalarySubmit = document.getElementById('annualSalary').value;
-    
+   // annualSalaryHolder = annualSalarySubmit / 12;
     
     let tableBody = document.getElementById('tableBody');
-    console.log(tableBody);
+   // console.log(tableBody);
 
     tableBody.innerHTML += `<tr>
     <td>${firstNameSubmit}</td>
@@ -22,18 +23,25 @@ function formSubmit(event){
     <td>${titleSubmit}</td>
     <td>${annualSalarySubmit}</td>
     <td>
-      <button id="deleter" onClick="deleteRowOnTable()">Delete</button>
+      <button id="deleter" onclick="deleteRowOnTable(event)">Delete</button>
     </td>
   </tr>
   `
 
     // console.log(firstNameSubmit);
     // console.log(lastNameSubmit);
-    console.log(iDsubmit);
-    console.log(titleSubmit);
-    console.log(annualSalarySubmit);
+    // console.log(iDsubmit);
+    // console.log(titleSubmit);
+    // console.log(annualSalarySubmit);
 
-   clearForm(event)
+   
+
+   totalMonthlySalary += Math.round(annualSalarySubmit / 12);
+   // annualSalaryHolder = totalMonthlySalary
+    //console.log("test    ", annualSalaryHolder)
+   updateTotalMonthlySalary();
+  // console.log(totalMonthlySalary)
+  clearForm(event);
 }
 
 
@@ -47,6 +55,14 @@ function clearForm(event){
 
 function updateTotalMonthlySalary(){
     // updates total monthly salary variable
+    let totalMonthly = document.getElementById('totalMonthly');
+    //console.log('total monthly container: ', totalMonthly)
+    if(totalMonthlySalary < 0){
+        totalMonthlySalary = 0;
+    }
+    
+    totalMonthly.textContent = totalMonthlySalary;
+
 
     // updates DOM with total monthly salary when a new
     // employee is added or deleted
@@ -55,9 +71,18 @@ function updateTotalMonthlySalary(){
     //applies 'over-budget class to footer when TMS > 20,000
 }
 
-function deleteRowOnTable(){
+function deleteRowOnTable(event){
     //on Click, delete entire row
-    
-    // when row is deleted make sure monthly salary is updated
+    //console.log('delete button used', event.target)
+    // when row is deleted make sure monthly salary is updated\
+   // console.log(event.target)
 
+   
+    let deleteBtn = event.target
+    let deleteRow = deleteBtn.parentElement.parentElement
+
+    deleteRow.remove();
+
+     totalMonthlySalary -= annualSalaryHolder;
+    updateTotalMonthlySalary()
 }
