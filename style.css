@@ -12,7 +12,7 @@ table {
     text-align: left;
 }
 
-table, th {
+table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
     height: 2.15em;
