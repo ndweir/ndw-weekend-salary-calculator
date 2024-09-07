@@ -41,7 +41,7 @@ function clearForm(event){
     event.preventDefault();
     // clears form inputs after a new employee is submitted
     console.log("This Working?"); 
-
+    document.getElementById('myForm').reset();
 }
 
 
