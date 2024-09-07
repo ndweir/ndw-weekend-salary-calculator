@@ -14,9 +14,9 @@ function formSubmit(event){
 
     // console.log(firstNameSubmit);
     // console.log(lastNameSubmit);
-    // console.log(iDsubmit);
-    // console.log(titleSubmit);
-    // console.log(annualSalarySubmit);
+    console.log(iDsubmit);
+    console.log(titleSubmit);
+    console.log(annualSalarySubmit);
 
     // document.getElementById('table').append(firstNameSubmit);
     // document.getElementById('table').append(lastNameSubmit);
@@ -25,14 +25,30 @@ function formSubmit(event){
     // document.getElementById('table').append(annualSalarySubmit);
     // adds row to table
 
+    let table = document.getElementById('tableBody')
+    let row = table.insertRow(0);
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
+    let cell5 = row.insertCell(4);
+    let cell6 = row.insertCell(5);
+
     // take the form input variables and display in DOM on table
-
-
+    cell1.innerHTML += firstNameSubmit;
+    cell2.innerHTML += lastNameSubmit;
+    cell3.innerHTML += iDsubmit;
+    cell4.innerHTML += titleSubmit;
+    cell5.innerHTML += annualSalarySubmit;
+   // cell6.innerHTML += btnChild.appendChild("Delete")
+   clearForm(event)
 }
 
 
-function clearForm(){
+function clearForm(event){
+    event.preventDefault();
     // clears form inputs after a new employee is submitted
+    console.log("This Working?"); 
 
 }
 
