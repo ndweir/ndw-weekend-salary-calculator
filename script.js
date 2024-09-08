@@ -11,7 +11,7 @@ function formSubmit(event){
     let iDsubmit = document.getElementById('iDnum').value;
     let titleSubmit = document.getElementById('title').value;
     let annualSalarySubmit = document.getElementById('annualSalary').value;
-   // annualSalaryHolder = annualSalarySubmit / 12;
+    //annualSalaryHolder = Math.round(annualSalarySubmit / 12);
     
     let tableBody = document.getElementById('tableBody');
    // console.log(tableBody);
@@ -69,6 +69,7 @@ function updateTotalMonthlySalary(){
     let footer = document.querySelector("footer");
    // console.log('SPAN     ', span)
 
+   //applies 'over-budget class to footer when TMS > 20,000
     if(totalMonthlySalary > 20000){
        // console.log('totalMonthly    ', totalMonthlySalary)
         footer.classList.add('over-budget')
@@ -77,7 +78,7 @@ function updateTotalMonthlySalary(){
     }
 
 
-
+    //console.log(totalMonthlySalary)
     totalMonthly.textContent = `$${totalMonthlySalary}.00`;
 
 
@@ -87,21 +88,22 @@ function updateTotalMonthlySalary(){
     
     
 
-    //applies 'over-budget class to footer when TMS > 20,000
+    
 }
 
 function deleteRowOnTable(event){
     //on Click, delete entire row
     //console.log('delete button used', event.target)
     // when row is deleted make sure monthly salary is updated\
-   // console.log(event.target)
-
+    console.log(event.target.parentElement.previousElementSibling.textContent)
+    //console.log(annualSalaryHolder)
+    let deleteMonthly = Math.round(event.target.parentElement.previousElementSibling.textContent / 12)
    
     let deleteBtn = event.target
     let deleteRow = deleteBtn.parentElement.parentElement
 
     deleteRow.remove();
 
-     totalMonthlySalary -= annualSalaryHolder;
+     totalMonthlySalary -= deleteMonthly;
     updateTotalMonthlySalary()
 }

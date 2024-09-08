@@ -58,8 +58,20 @@ div {
 
 footer {
     text-align: right;
+    padding-right: 15px;
 }
 
 .over-budget {
     color: red;
+}
+
+#myForm {
+ display: flex;
+ justify-content: space-between;
+ gap: 8px;
+}
+
+input {
+    flex: 1;
+
 }
