@@ -61,11 +61,28 @@ function updateTotalMonthlySalary(){
         totalMonthlySalary = 0;
     }
     
-    totalMonthly.textContent = totalMonthlySalary;
-
-
     // updates DOM with total monthly salary when a new
     // employee is added or deleted
+
+    let footer = document.querySelector("span");
+   // console.log(footer)
+
+    if(totalMonthlySalary > 20000){
+      //  console.log(totalMonthlySalary)
+        footer.classList.add('over-budget')
+    } else {
+        footer.classList.remove('over-budget')
+    }
+
+
+
+    totalMonthly.textContent = `$${totalMonthlySalary}.00`;
+
+
+   
+
+    
+    
     
 
     //applies 'over-budget class to footer when TMS > 20,000
