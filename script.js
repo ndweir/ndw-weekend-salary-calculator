@@ -55,6 +55,8 @@ function clearForm(event){
 
 function updateTotalMonthlySalary(){
     // updates total monthly salary variable
+
+
     let totalMonthly = document.getElementById('totalMonthly');
     //console.log('total monthly container: ', totalMonthly)
     if(totalMonthlySalary < 0){
@@ -64,11 +66,11 @@ function updateTotalMonthlySalary(){
     // updates DOM with total monthly salary when a new
     // employee is added or deleted
 
-    let footer = document.querySelector("span");
-   // console.log(footer)
+    let footer = document.querySelector("footer");
+   // console.log('SPAN     ', span)
 
     if(totalMonthlySalary > 20000){
-      //  console.log(totalMonthlySalary)
+       // console.log('totalMonthly    ', totalMonthlySalary)
         footer.classList.add('over-budget')
     } else {
         footer.classList.remove('over-budget')
