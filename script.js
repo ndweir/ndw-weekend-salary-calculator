@@ -105,6 +105,7 @@ function deleteRowOnTable(event){
     //console.log('delete button used', event.target)
 
     // * when row is deleted make sure monthly salary is updated
+    // * deleteMonthly variable accesses value of parent element, and sibling number
     let deleteMonthly = Math.round(event.target.parentElement.previousElementSibling.textContent / 12)
     //  console.log(event.target.parentElement.previousElementSibling.textContent)
     //  console.log(annualSalaryHolder)
